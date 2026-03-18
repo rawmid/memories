@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Photo Gallery &#129321;</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #0f172a;
+      color: white;
+      padding: 40px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 2.5rem;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 20px;
+    }
+
+    .photo {
+      overflow: hidden;
+      border-radius: 15px;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .photo img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      transition: transform 0.4s ease, filter 0.4s ease;
+    }
+
+    .photo:hover img {
+      transform: scale(1.1);
+      filter: brightness(0.7);
+    }
+
+    .caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 15px;
+      background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .photo:hover .caption {
+      opacity: 1;
+    }
+
+    .caption p {
+      font-size: 1rem;
+    }
+
+    /* LIGHTBOX */
+    .lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      z-index: 1000;
+    }
+
+    .lightbox.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(255,255,255,0.2);
+    }
+
+  </style>
+</head>
+<body>
+
+  <h1>My Photo Gallery &#129321;</h1>
+
+  <div class="gallery">
+
+    <div class="photo"><img src="aura farmer.png"><div class="caption"><p>aura farmer</p></div></div>
+    <div class="photo"><img src="deep nigga.png"><div class="caption"><p>deep nigga chodna</p></div></div>
+    <div class="photo"><img src="irfan chandimal.jpg"><div class="caption"><p>irfan chandimal</p></div></div>
+    <div class="photo"><img src="tasbir mogachoda.jpg"><div class="caption"><p>tasbir mogachoda</p></div></div>
+    <div class="photo"><img src="warishar jamai.jpg"><div class="caption"><p>warishar jamai</p></div></div>
+    <div class="photo"><img src="murgi.jpg"><div class="caption"><p>murgi choda tasbir er bou</p></div></div>
+    <div class="photo"><img src="shada shada kala kala.png"><div class="caption"><p>shada shada kala kala</p></div></div>
+    <div class="photo"><img src="iron 1.png"><div class="caption"><p>iron 1</p></div></div>
+    <div class="photo"><img src="kala choshma.png"><div class="caption"><p>nil jogoter nayok</p></div></div>
+    <div class="photo"><img src=""><div class="caption"><p>Photo 6</p></div></div>
+
+
+  </div>
+
+  <!-- LIGHTBOX VIEW -->
+  <div class="lightbox" id="lightbox">
+    <img id="lightbox-img" src="">
+  </div>
+
+  <script>
+    const photos = document.querySelectorAll('.photo img');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+
+    photos.forEach(photo => {
+      photo.addEventListener('click', () => {
+        lightbox.classList.add('active');
+        lightboxImg.src = photo.src;
+      });
+    });
+
+    lightbox.addEventListener('click', () => {
+      lightbox.classList.remove('active');
+    });
+  </script>
+
+</body>
+</html>
