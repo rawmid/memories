@@ -1,3 +1,7 @@
+Here’s your fixed and clean version:
+
+---
+
 # Mini Pinterest-Style Gallery 📸
 
 A simple, fun photo gallery web project inspired by Pinterest. Built for practice with HTML, CSS, and JavaScript.
@@ -10,7 +14,7 @@ A simple, fun photo gallery web project inspired by Pinterest. Built for practic
 * Lightbox view on click
 
 **Usage**
-Open `index.html](https://rawnak-thmd.github.io/memories/` in your browser and explore the gallery.
+[Open Live Demo](https://rawnak-thmd.github.io/memories/)
 
 **Tech**
 HTML, CSS, JavaScript
